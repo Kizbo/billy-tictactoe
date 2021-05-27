@@ -1,70 +1,39 @@
-# Getting Started with Create React App
+# Tic tac toe - Billy Tech Task
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A Simple implementation of a game tic tac toe - with ability to reset game and choose who starts first, tracking wins and whose turn is it.
 
-## Available Scripts
+I choose frontend version of the task, because last few projects i had was all about backend and PHP, so it was a nice change to do some React work :D
 
-In the project directory, you can run:
+## How to run it
 
-### `npm start`
+Everything is based on create-react-app, so we have pretty simple tools to run app in dev mode, but also in production:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Dev:
+> npm install <br>
+> npm start
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Production:
+> npm install <br>
+> npm build <br>
+> Run your favourite deploy tool, eg. serve -s build 
 
-### `npm test`
+## Short description
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Whole game is using Context API to communicate between components, doing that with actions defined in reducer (services/GameStatusContext.js). To identify symbols used in the game I choosed to use JS Symbols, creating sort of a enum (Symbols + Object.freeze is I think the closest thing what we can achieve to enums in TS). Everything else are simple React components, where most of the game functions are in App.js. If i would to make some things different, I would probably rewrite the whole thing in Typescript and create some unit tests.
 
-### `npm run build`
+## Design
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+In terms of colors, i was inspired by task page - adding my own personal ideas to that. For styling, i used Material UI (more on that later) and simple CSS - there isn't much styling here, so i decided that another library for styles, or CSS-in-JS are unnecessary.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Used libraries and snippets
+### Libraries
+ - Whole app is based on boilerplate from create-react-app - application is really simple, so I used it so I can focus more on coding, less on creating tools for that.
+ - Material UI (Core and Icons) - I think that is my favourite UI library for React. It gives a clean and simple base components for creating virtually any app, it also have a library of Material Design icons. So in order to not create everything from the scratch, I used some of the components and icons, what in my opinion gives uniform and neat appearance.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+ Besides that, we have react-scripts and web-vitals - tools for development included in create-react-app.
 
-### `npm run eject`
+ ### Snippets
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+ I used one snippet from the web - the mechanism for calculating if we have a winner (services/CalculateWinner.js) - it is a really simple script, so i decided there is no reason to reinvent the wheel and optimize it, because it would make no real difference and i copied it from the official React tutorial about making tic tac toe :)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
